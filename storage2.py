@@ -25,6 +25,19 @@ def add_product():
 
     products.append(product2)
 
+
+def search_product():
+    """
+    This function is used to search for product in the list of products by product name.
+    """
+
+    name = input("Chci vyhledat: ")
+
+    for product in products:
+        if product['name'].lower().startswith(name.lower()):
+            print(f"Název produktu: {product['name']}, cena: {product['price']}$")
+
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -44,6 +57,11 @@ def menu():
         print("Přidání položky:")
         add_product()
         print("")
+        menu()
+
+    elif choice == 3:
+        print("Vyhledání položky")
+        search_product()
         menu()
 
     else:
