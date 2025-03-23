@@ -51,6 +51,20 @@ def price_sum():
     print(f"Celková cena produktů je {sum_price}")
 
 
+def most_expensive_product():
+    """
+    This function is used to find the most expensive product in the list of products.
+    """
+
+    print("Nejdražší položkou na skladě je:")
+
+    max_price = max(product["price"] for product in products)
+
+    for product in products:
+        if product["price"] == max_price:
+            print(f"Název produktu: {product['name']}, cena: {product['price']}$")
+
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -58,6 +72,7 @@ def menu():
     print("2. Přidání položky")
     print("3. Vyhledání položky")
     print("4. Celková cena produktů")
+    print("5. Nejdražší položka na skladě")
 
     choice = int(input("Volba: "))
 
@@ -80,6 +95,10 @@ def menu():
 
     elif choice == 4:
         price_sum()
+        menu()
+
+    elif choice == 5:
+        most_expensive_product()
         menu()
 
     else:
