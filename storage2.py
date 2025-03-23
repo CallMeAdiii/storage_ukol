@@ -99,6 +99,10 @@ def edit_product():
 
     product_index = int(input("Číslo produktu: "))
 
+    if product_index >= len(products):
+        print("zadal jsi špatné číslo produktu")
+        return
+
     print(f"Číslo produktu: {product_index} jméno produktu: {products[product_index]['name']}, cena: {products[product_index]['price']}$")
     print("Pro editaci jména zadej 1 a pro editaci ceny 2")
 
@@ -110,6 +114,8 @@ def edit_product():
     elif product_action == 2:
         new_price = int(input("Nová cena produktu: "))
         products[product_index]['price'] = new_price
+    else:
+        print("Zadal jsi špatné číslo akce")
 
     print(f"Upravená položka vypadá takto: cena: {products[product_index]['price']}$, jméno produktu: {products[product_index]['name']}$")
 
