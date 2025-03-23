@@ -35,12 +35,6 @@ Po spuštění programu se zobrazí hlavní menu s očíslovanými možnostmi. S
 ## Možné problémy a jejich řešení
 
 - **Zadání nečíselné hodnoty pro cenu** – Uživatel musí zadávat pouze číselné hodnoty pro cenu, jinak program vyvolá chybu.
-- **Neplatný index při úpravě produktu** – Pokud uživatel zadá číslo mimo rozsah seznamu produktů, program může selhat. Ošetření vstupu by bylo vhodné vylepšit.
-
-## Možná vylepšení
-
-- Přidání možnosti mazání produktů.
-- Ošetření chybného vstupu při zadávání čísel.
 
 ---
 Autor: **Ondřej Brázdil**
