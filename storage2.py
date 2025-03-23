@@ -38,12 +38,26 @@ def search_product():
             print(f"Název produktu: {product['name']}, cena: {product['price']}$")
 
 
+def price_sum():
+    """
+    This function is used to calculate price of all products.
+    """
+
+    sum_price = 0
+
+    for product in products:
+        sum_price += product['price']
+
+    print(f"Celková cena produktů je {sum_price}")
+
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
     print("1. Výpis položek")
     print("2. Přidání položky")
-    print("3. Vyhledání položky\n")
+    print("3. Vyhledání položky")
+    print("4. Celková cena produktů")
 
     choice = int(input("Volba: "))
 
@@ -62,6 +76,10 @@ def menu():
     elif choice == 3:
         print("Vyhledání položky")
         search_product()
+        menu()
+
+    elif choice == 4:
+        price_sum()
         menu()
 
     else:
