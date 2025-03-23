@@ -88,6 +88,31 @@ def avarage_price():
     print(f"Průměrná cena produktů: {sum(price_list)/len(price_list)}")
 
 
+def edit_product():
+    """
+    This function is used to edit product in the list of products.
+    """
+    for index, product in enumerate(products):
+        print(f"Číslo produktu: {index} jméno produktu: {product['name']}, cena: {product['price']}$")
+
+    print("řekni mi číslo produktu, který chceš editovat")
+
+    product_index = int(input("Číslo produktu: "))
+
+    print(f"Číslo produktu: {product_index} jméno produktu: {products[product_index]['name']}, cena: {products[product_index]['price']}$")
+    print("Pro editaci jména zadej 1 a pro editaci ceny 2")
+
+    product_action = int(input("akce: "))
+
+    if product_action == 1:
+        new_name = input("Nové jméno produktu: ")
+        products[product_index]['name'] = new_name
+    elif product_action == 2:
+        new_price = int(input("Nová cena produktu: "))
+        products[product_index]['price'] = new_price
+
+    print(f"Upravená položka vypadá takto: cena: {products[product_index]['price']}$, jméno produktu: {products[product_index]['name']}$")
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -98,6 +123,7 @@ def menu():
     print("5. Nejdražší položka na skladě")
     print("6. Nejlevnější položka na skladě ")
     print("7. Průměrná cena produktů")
+    print("8. Editovat položku")
 
     choice = int(input("Volba: "))
 
@@ -132,6 +158,10 @@ def menu():
 
     elif choice == 7:
         avarage_price()
+        menu()
+
+    elif choice == 8:
+        edit_product()
         menu()
 
     else:
