@@ -64,6 +64,18 @@ def most_expensive_product():
         if product["price"] == max_price:
             print(f"Název produktu: {product['name']}, cena: {product['price']}$")
 
+def cheapest_product():
+    """
+    This function is used to find least expensive product in the list of products.
+    """
+
+    print("Nejlevnější položkou na skladě je:")
+
+    min_price = min(product["price"] for product in products)
+
+    for product in products:
+        if product["price"] == min_price:
+            print(f"Název produktu: {product['name']}, cena: {product['price']}$")
 
 def menu():
     print("Vítej ve skladu")
@@ -73,6 +85,7 @@ def menu():
     print("3. Vyhledání položky")
     print("4. Celková cena produktů")
     print("5. Nejdražší položka na skladě")
+    print("6. Nejlevnější položka na skladě ")
 
     choice = int(input("Volba: "))
 
@@ -99,6 +112,10 @@ def menu():
 
     elif choice == 5:
         most_expensive_product()
+        menu()
+
+    elif choice == 6:
+        cheapest_product()
         menu()
 
     else:
