@@ -113,6 +113,22 @@ def edit_product():
 
     print(f"Upravená položka vypadá takto: cena: {products[product_index]['price']}$, jméno produktu: {products[product_index]['name']}$")
 
+
+def delete_product():
+    """
+    This function is used to delete product in the list of products.
+    """
+    for index, product in enumerate(products):
+        print(f"Číslo produktu: {index} jméno produktu: {product['name']}, cena: {product['price']}$")
+
+    print("Zadej mi číslo produktu který chceš smazat")
+    product_index = int(input("Číslo produktu: "))
+
+    if product_index < len(products):
+        products.pop(product_index)
+
+    print(f"produkt číslo {product_index} byl smazán")
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -124,6 +140,7 @@ def menu():
     print("6. Nejlevnější položka na skladě ")
     print("7. Průměrná cena produktů")
     print("8. Editovat položku")
+    print("9. Smazání produktu")
 
     choice = int(input("Volba: "))
 
@@ -162,6 +179,10 @@ def menu():
 
     elif choice == 8:
         edit_product()
+        menu()
+
+    elif choice == 9:
+        delete_product()
         menu()
 
     else:
