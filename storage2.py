@@ -64,6 +64,7 @@ def most_expensive_product():
         if product["price"] == max_price:
             print(f"Název produktu: {product['name']}, cena: {product['price']}$")
 
+
 def cheapest_product():
     """
     This function is used to find least expensive product in the list of products.
@@ -77,6 +78,16 @@ def cheapest_product():
         if product["price"] == min_price:
             print(f"Název produktu: {product['name']}, cena: {product['price']}$")
 
+
+def avarage_price():
+    """
+    This function is used to calculate average price of all products.
+    """
+
+    price_list = [product["price"] for product in products]
+    print(f"Průměrná cena produktů: {sum(price_list)/len(price_list)}")
+
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -86,6 +97,7 @@ def menu():
     print("4. Celková cena produktů")
     print("5. Nejdražší položka na skladě")
     print("6. Nejlevnější položka na skladě ")
+    print("7. Průměrná cena produktů")
 
     choice = int(input("Volba: "))
 
@@ -116,6 +128,10 @@ def menu():
 
     elif choice == 6:
         cheapest_product()
+        menu()
+
+    elif choice == 7:
+        avarage_price()
         menu()
 
     else:
